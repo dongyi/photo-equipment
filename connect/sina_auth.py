@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import memcache
+from tornado.options import options
 
 from weibopy import OAuthHandler, oauth, WeibopError
-from tornado.options import options
 from weibopy.api import API
+
 from common.base_httphandler import BaseHandler
-from common.util import check_user
 from config.membase_config import session_mc
+
 session_mc_client = memcache.Client(session_mc)
 
 class WebOAuthHandler(OAuthHandler):

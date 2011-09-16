@@ -11,7 +11,7 @@ import urllib
 import json
 import memcache
 from tornado.options import options
-from common.util import check_user
+
 from common.base_httphandler import BaseHandler
 from config.membase_config import session_mc
 session_mc_client = memcache.Client(session_mc)

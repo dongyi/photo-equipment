@@ -12,12 +12,11 @@ import tornado.web
 import tornado.autoreload
 
 import common.session
-
+import config.web_config
 
 #controllers:
-from base_httphandler import BaseHandler
-from base_httphandler import ProxyHandler
-from equip import EquipHandler
+from common.base_httphandler import BaseHandler
+from common.base_httphandler import ProxyHandler
 from connect.sina_auth import  AuthLoginHandler, AuthLoginCheckHandler, AuthLogoutHandler
 from connect.renren_auth import LoginHandler as RRLoginHandler
 from connect.renren_auth import LogoutHandler as RRLogoutHandler
@@ -28,6 +27,7 @@ from connect.douban_auth import LogoutHandler as DBLogoutHandler
 from connect.facebook_auth import AuthLoginHandler as FBAuthLoginHandler
 from connect.facebook_auth import AuthLogoutHandler as FBAuthLogoutHandler
 
+from equip import EquipHandler
 
 class MainHandler(BaseHandler):
     def get(self):

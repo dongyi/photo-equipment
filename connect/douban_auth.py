@@ -14,7 +14,7 @@ import hmac
 import memcache
 from tornado.options import options
 from common.base_httphandler import BaseHandler
-from common.util import check_user
+
 from config.membase_config import session_mc
 
 session_mc_client = memcache.Client(session_mc)
