@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>retest v0.6.1</title>
+     <script type="text/javascript" src="http.js"></script>
+	<script type="text/javascript">
+		var RE_CHECK_URL = "/check";
+        
+		function prepareForm() {
+			var f = document.forms['retest']
+            addEvent(f, 'submit', testre);
+            addEvent(f['txt'], 'keyup', testre);
+            addEvent(f['regex'], 'keyup', testre);
+
+            var clickfields = [
+                'search', 'match', 'findall', 'split', 
+                'dotall', 'multiline', 'ignorecase', 'verbose'
+                ]
+            for (name in clickfields) {
+                addEvent(f[name], 'click', testre);          
+                }
+			}
+		window.onload = prepareForm;
+
+
+        function testre() {
+            var data = queryFromForm(document.forms['retest']);           
+			try {
+                var res = xmlhttpPost(RE_CHECK_URL, data, handleRes)
+			}
+			catch (e) {
+				alert(RE_CHECK_URL + "\n" + e)
+				}
+			}
+
+		function handleRes(res) {
+			var e = document.getElementById('result')
+			e.value = res.responseText
+			}
+
+        function size(id, amount) {
+            var e = document.getElementById(id)
+            e.rows = e.rows + amount
+            return false;
+            }
+	</script>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			}
+		body {
+			font-family: sans-serif;
+			padding: 10px 5%;
+			color: #fff;
+			background: #89b;
+			}
+          fieldset {
+               border: 0;
+               }
+                fieldset div {
+                    text-align: right;
+                    }
+          label {
+                font-size: 0.9em;
+                }
+          strong {
+                color: #ddd;
+                font-weight: normal;
+                font-style: italic;
+                padding-left: 1em;
+                }
+          h1 {
+               text-align: center;
+               }
+          h2 {
+               text-align: center;
+               font-size: 0.9em; 
+               font-weight: normal;
+               margin-bottom: 1.5em;
+               }
+          p.exit {
+               float: right;
+               font-weight: bold;
+               }
+          h3 {
+			color: #000;
+               font-size: 1em;
+               margin-top: 1em;
+               }
+               h3 button {
+                    font-family: monospace;
+                    font-weight: bold;
+                    float: right;
+                    padding: 0 0.3em;
+                    }
+                h3 label {
+                    font-size: 1em;
+                    }
+                       label span {
+                            text-decoration: underline;
+                            }
+		div p {
+			text-align: right;
+			margin: 0.1em 0 0.4em;
+			}
+		input.sub {
+                display: none;
+               margin-left: 1em;
+			}
+		textarea {
+			color: #000;
+			background-color: #fff;
+			width: 100%;
+                font-family: sans-serif;
+			}
+                #regex, #result {
+                    font-family: "lucida console", monospace;
+                    }
+		pre, input {
+			font-family: "lucida console", monospace;
+			}
+          p, p a {
+            font-size: 0.9em; 
+            text-align: right;
+            color: #ddd;
+            margin-top: 0.5em;
+            }
+	</style>
+</head>
+
+<body>
+     <p class="exit">
+        <a href="/exit">Exit</a>
+     </p>
+	<h1>retest</h1>
+	<h2>Test a Python regular expression on text and get results.</h2>
+     <noscript>
+           <h2>JAVASCRIPT needs to be enabled!</h2>
+     </noscript>
+	<div>
+	<form action="" id="retest" method="post">
+        <fieldset>
+			<h3>
+                    <button onclick="return size('txt', -1)" accesskey="2" title="[ALT]-2">-</button>
+                    <button onclick="return size('txt', 1)"  accesskey="1" title="[ALT]-1">+</button> 
+                    <label for="txt" title="[ALT]-T"><span>T</span>ext</label>
+               </h3>
+			<textarea tabindex="2" accesskey="t" cols="100" rows="7"  name="txt" id="txt"></textarea>
+			<h3>
+                    <button onclick="return size('regex', -1)" accesskey="4" title="[ALT]-4">-</button>
+                    <button onclick="return size('regex', 1)"  accesskey="3" title="[ALT]-3">+</button> 
+                    <label for="regex" title="[ALT]-R"><span>R</span>egular expression</label> 
+               </h3>
+			<textarea tabindex="1" accesskey="r" cols="100" rows="5"  name="regex" id="regex"></textarea>
+			<div>
+				<strong>method:</strong>
+				<input type="radio" name="method" id="match" value="match" checked="checked" accesskey="m" title="[ALT]-m" /> 
+                    <label for="match" title="[ALT]-m"><span>m</span>atch</label>
+				<input type="radio" name="method" id="search" value="search" accesskey="s" title="[ALT]-s" />
+                    <label for="search" title="[ALT]-s"><span>s</span>earch</label>
+				<input type="radio" name="method" id="findall" value="findall" accesskey="a" title="[ALT]-a" /> 
+                    <label for="findall" title="[ALT]-a">find<span>a</span>ll</label>
+				<input type="radio" name="method" id="split" value="split" accesskey="p" title="[ALT]-p" /> 
+                    <label for="split" title="[ALT]-s">s<span>p</span>lit</label>
+                    <br />
+				<strong>options: </strong>
+				<input type="checkbox" name="dotall" id="dotall" value="true" checked="checked" accesskey="D" title="[ALT]-D"/> 
+                    <label for="dotall" title="[ALT]-D"><span>D</span>OTALL</label>
+				<input type="checkbox" name="ignorecase" id="ignorecase" value="true" checked="checked" accesskey="I" title="[ALT]-I" /> 
+                    <label for="ignorecase" title="[ALT]-I"><span>I</span>GNORECASE</label>
+				<input type="checkbox" name="multiline" id="multiline" value="true" accesskey="L" title="[ALT]-L" /> 
+                    <label for="multiline" title="[ALT]-L">MU<span>L</span>TILINE</label>
+				<input type="checkbox" name="verbose" id="verbose" value="true" checked="checked" accesskey="V" title="[ALT]-V" /> 
+                    <label for="verbose" title="[ALT]-V"><span>V</span>ERBOSE</label>
+                </div>
+                <div>
+                <input class="sub" type="submit" value="check"/>
+                </div>
+                </fieldset>
+		</form>
+		<h3>
+               <button onclick="return size('result', -1)" accesskey="6" title="[ALT]-6">-</button>
+               <button onclick="return size('result', 1)"  accesskey="5" title="[ALT]-5">+</button> 
+               Results
+          </h3>
+		<textarea cols="100" rows="10" id="result" readonly="readonly"></textarea>
+          <p>(each result enclosed in single quotes, contained single quotes are escaped)</p>
+	</div>
+    <p>&copy; 2005-2007 <a href="http://cthedot.de/retest/">Christof Höke</a></p>
+</body>
+</html>
