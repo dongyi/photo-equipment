@@ -30,7 +30,6 @@ def _get_referer_url(request_handle):
 class LoginCheckHandler(BaseHandler):
     def get(self):
         d = douban()
-        login_backurl = self.build_absolute_uri('/dblogincheck')
         print self.session.session_id
         self.request_token = self.session.get('request_token')
 

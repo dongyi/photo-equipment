@@ -18,15 +18,15 @@ import tornado.autoreload
 from base_httphandler import BaseHandler
 from base_httphandler import ProxyHandler
 from equip import EquipHandler
-#from connect.sina_auth import  AuthLoginHandler, AuthLoginCheckHandler, AuthLogoutHandler
-#from connect.renren_auth import LoginHandler as RRLoginHandler
-#from connect.renren_auth import LogoutHandler as RRLogoutHandler
-#from connect.renren_auth import LoginCheckHandler as RRLoginCheckHandler
-#from connect.douban_auth import LoginHandler as DBLoginHandler
-#from connect.douban_auth import LoginCheckHandler as DBLoginCheckHandler
-#from connect.douban_auth import LogoutHandler as DBLogoutHandler
-#from connect.facebook_auth import AuthLoginHandler as FBAuthLoginHandler
-#from connect.facebook_auth import AuthLogoutHandler as FBAuthLogoutHandler
+from connect.sina_auth import  AuthLoginHandler, AuthLoginCheckHandler, AuthLogoutHandler
+from connect.renren_auth import LoginHandler as RRLoginHandler
+from connect.renren_auth import LogoutHandler as RRLogoutHandler
+from connect.renren_auth import LoginCheckHandler as RRLoginCheckHandler
+from connect.douban_auth import LoginHandler as DBLoginHandler
+from connect.douban_auth import LoginCheckHandler as DBLoginCheckHandler
+from connect.douban_auth import LogoutHandler as DBLogoutHandler
+from connect.facebook_auth import AuthLoginHandler as FBAuthLoginHandler
+from connect.facebook_auth import AuthLogoutHandler as FBAuthLogoutHandler
 
 
 class MainHandler(BaseHandler):
@@ -49,6 +49,17 @@ class Application(tornado.web.Application):
             (r"/", MainHandler),
             (r'/proxy/(.*)', ProxyHandler),
             (r'/equipment/(.*)', EquipHandler),
+            (r"/wblogin", AuthLoginHandler),
+            (r"/wblogout", AuthLogoutHandler),
+            (r"/wblogin_check", AuthLoginCheckHandler),
+            (r"/rrlogin", RRLoginHandler),
+            (r"/rrlogout", RRLogoutHandler),
+            (r'/rrlogincheck', RRLoginCheckHandler),
+            (r"/dblogin", DBLoginHandler),
+            (r"/dblogout", DBLogoutHandler),
+            (r'/dblogincheck', DBLoginCheckHandler),
+            (r'/fblogin', FBAuthLoginHandler),
+            (r'/fblogout', FBAuthLogoutHandler),
             ]
         tornado.web.Application.__init__(self, handlers, **settings)
         #self.session_manager = common.session.TornadoSessionManager(settings["session_secret"], settings["session_dir"])

@@ -1,5 +1,5 @@
 #coding=utf8
-from base_httphandler import BaseHandler
+from common.base_httphandler import BaseHandler
 import sqlite3
 conn = sqlite3.connect('equipment.db')
 conn.text_factory = str
