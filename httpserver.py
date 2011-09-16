@@ -11,7 +11,7 @@ import tornado.options
 import tornado.web
 import tornado.autoreload
 
-
+import common.session
 
 
 #controllers:
@@ -62,7 +62,7 @@ class Application(tornado.web.Application):
             (r'/fblogout', FBAuthLogoutHandler),
             ]
         tornado.web.Application.__init__(self, handlers, **settings)
-        #self.session_manager = common.session.TornadoSessionManager(settings["session_secret"], settings["session_dir"])
+        self.session_manager = common.session.TornadoSessionManager(settings["session_secret"], settings["session_dir"])
 
 def main(port):
     tornado.options.parse_command_line()
