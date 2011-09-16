@@ -7,15 +7,11 @@ import os
 import re
 import urllib2
 
-from weibopy.api import API
 from urlparse import urljoin
-from weibopy import OAuthHandler
 from tornado.options import options
-from common.decorator import login_required
 #from config.web_config import PLATFORM
 
 
-import session
 from httputil import iri_to_uri
 
 #from config.web_config import PLATFORM
@@ -27,34 +23,6 @@ class BaseHandler(tornado.web.RequestHandler):
     def __init__(self, *argc, **argkw):
         super(BaseHandler, self).__init__(*argc, **argkw)
         self.path = ''
-        self.session = session.TornadoSession(self.application.session_manager, self)
-
-        if self.session.get('platform') == 'weibo':
-            self._userid = int(self.get_user_id())
-            self.sina_access_token = self.session.get('oauth_access_token')
-            auth = OAuthHandler(options.SINA_APP_KEY, options.SINA_APP_SECRET)
-            auth.set_access_token(self.sina_access_token.key, self.sina_access_token.secret)
-            self.sina_api = API(auth)
-        elif self.session.get('platform') == 'renren':
-            self._userid = int(self.get_user_id())
-            print "renren ok"
-        elif self.session.get('platform') == 'douban':
-            self._userid = int(self.get_user_id())
-            print "douban ok"
-
-
-    # platform apis, support sina, renren, douban
-    def get_current_user(self):
-        return self.session.get('username')
-
-    def get_user_id(self):
-        return self.session.get('me').id
-
-    def get_user_image(self):
-        return self.session.get('me').profile_image_url
-
-    def get_user_url(self):
-        return self.session.get('me').url
 
     def get_host(self):
         """Returns the HTTP host using the environment or request headers."""
@@ -94,7 +62,6 @@ class ReqMixin(object):
         callback(req)
 
 class ProxyHandler(BaseHandler, ReqMixin):
-    @login_required
     @tornado.web.asynchronous
     def get(self, action):
         if action == 'update':

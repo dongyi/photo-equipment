@@ -59,7 +59,7 @@ def main(port):
 
     app = Application()
     app.listen(port)
-    if tornado.options.options.debug:
+    if True:
         application = tornado.ioloop.IOLoop.instance()
         tornado.autoreload.start(application)
         application.start()
