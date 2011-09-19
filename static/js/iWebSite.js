@@ -285,7 +285,6 @@ browserDetected=true;}}
 detectBrowser();function shouldApplyCSSBackgroundPNGFix()
 {return(windowsInternetExplorer&&(effectiveBrowserVersion<7));}
 function photocastHelper(url)
-{var feed=new IWURL(url);var iPhotoVersionMin=600;var iPhotoMimeTypePlugin="application/photo";if(navigator.mimeTypes&&navigator.mimeTypes.length>0)
 {var iPhoto=navigator.mimeTypes[iPhotoMimeTypePlugin];if(iPhoto)
 {var description=iPhoto.description;try
 {var components=description.split(" ");if(components&&components.length>1)
