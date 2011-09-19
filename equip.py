@@ -16,7 +16,10 @@ class EquipmentListHandler(BaseHandler):
         sql = "select * from equipment limit %d, %d"%(start_id, item_per_page)
         cur.execute(sql)
         res = cur.fetchall()
-        self.render('equipment_list.html', res=res)
+        prev = max(1, page-1)
+        next = min(62, page+1)
+        cur_page = page
+        self.render('equipment_list.html', res=res, prev=prev, next=next, cur_page=cur_page)
 
     def post():
         pass

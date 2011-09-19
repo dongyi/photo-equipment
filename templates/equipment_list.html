@@ -4,6 +4,13 @@
 {% end %}
 
 {% block body %}
+
+<div class="paginator">
+<p><a href="/equipment_list/{{prev}}">&lt;前页</a>
+{{ cur_page }}
+<a href="/equipment_list/{{next}}">后页&gt;</a></p>
+</div>
+
 {% for item in res %}
  <p>{{ item[0] }}. <a href="/equipment/{{item[0]}}">{{item[87].decode('gbk')}}</a></p>
 ---
@@ -12,4 +19,10 @@
   {% end %}
 ----
 {% end %}
+
+<div class="paginator">
+<p><a href="/equipment_list/{{prev}}">&lt;前页</a>
+{{ cur_page }}
+<a href="/equipment_list/{{next}}">后页&gt;</a></p>
+</div>
 {% end %}
