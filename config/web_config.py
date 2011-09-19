@@ -18,8 +18,8 @@ define("facebook_secret", help="your Facebook application secret",
               default="537a73968e1b2bf5200099d75d8bed17")
 
 # renren options:
-define('RENREN_APP_API_KEY', default='f3ea7861f432417896389a95ee83d406')
-define('RENREN_APP_SECRET_KEY', default='4660628467da45fc8602b65c7ae51a5b')
+define('RENREN_APP_API_KEY', default='fc39a39382304aeca966de940af253e5')
+define('RENREN_APP_SECRET_KEY', default='922227ccf2144ba7995c4f53be0798b8')
 
 # qq options:
 appid = 18196
@@ -27,8 +27,8 @@ appkey = '65501caeb2da4ce78d28544b0ab3eeaa'
 appname = 'app18196'
 
 # douban options:
-define('douban_api_key', default='083d72c75bee281018b8585613ca7830')
-define('douban_api_secret', default='3aa03c5f7a1cc965')
+define('douban_api_key', default='07bbe3235f73a1a81733a96a1e5ae4f8')
+define('douban_api_secret', default='8c40842909ab7e83')
 
 define("pengyou_app_id", default=18196, help="pengyou.com app id")
 define("pengyou_app_key", default="65501caeb2da4ce78d28544b0ab3eeaa", help="pengyou.com app key")

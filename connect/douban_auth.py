@@ -43,8 +43,6 @@ class LoginCheckHandler(BaseHandler):
         self.set_cookie('uid', str(item.id))
         self.set_cookie('sid', self.session.session_id)
         session_mc_client.set(str(item.id), self.session.session_id)
-        if check_user(item.id) == False:
-            return self.redirect('/profile/register')
         back_to_url = self.session.get('login_back_to_url','/')
         return self.redirect(back_to_url)
 
