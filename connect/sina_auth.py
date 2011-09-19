@@ -70,8 +70,6 @@ class AuthLoginCheckHandler(BaseHandler):
         self.session.save()
         # 跳转回最初登录前的页面
         back_to_url = self.session.get('login_back_to_url', '/')
-        if check_user(api.me().id) == False:
-            return self.redirect('/profile/register')
         return self.redirect(back_to_url)
 
 

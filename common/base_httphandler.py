@@ -2,7 +2,7 @@
 import tornado.web
 import tornado.httpserver
 import tornado.httpclient
-
+import common.session
 import os
 import re
 import urllib2
@@ -23,6 +23,7 @@ class BaseHandler(tornado.web.RequestHandler):
     def __init__(self, *argc, **argkw):
         super(BaseHandler, self).__init__(*argc, **argkw)
         self.path = ''
+        self.session = common.session.TornadoSession(self.application.session_manager, self)
 
     def get_host(self):
         """Returns the HTTP host using the environment or request headers."""

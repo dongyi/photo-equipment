@@ -32,6 +32,9 @@ from equip import EquipHandler
 class MainHandler(BaseHandler):
     def get(self):
         self.render('index.html')
+class LoginHandler(BaseHandler):
+    def get(self):
+        self.render('login.html')
 
 settings = dict(
                 cookie_secret="43oETzKXQAGaYdkL5gEmGeJJFuYh7EQnp2XdTP1o/Vo=",
@@ -47,6 +50,7 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r"/", MainHandler),
+            (r'/login', LoginHandler),
             (r'/proxy/(.*)', ProxyHandler),
             (r'/equipment/(.*)', EquipHandler),
             (r"/wblogin", AuthLoginHandler),
