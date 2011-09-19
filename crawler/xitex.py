@@ -120,7 +120,6 @@ def process_item(item_link):
         fields_txt = ','.join(fields)
         values_txt = ','.join(values)
     sql = 'INSERT INTO %s (%s) VALUES (%s)'%(table_name, fields_txt, values_txt)
-    print sql
     with open('sql_record.txt', 'a') as f:
         f.write(sql)
         cur.execute(sql)
