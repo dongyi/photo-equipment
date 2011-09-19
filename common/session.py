@@ -32,7 +32,7 @@ import hmac
 import hashlib
 import uuid
 
-from config.membase_config import session_mc
+session_mc = ['127.0.0.1:11211'] 
 
 class Session(dict):
     """ A Session is basically a dict with a session_id and an hmac_digest string to verify access rights """
@@ -53,7 +53,6 @@ class SessionManager(object):
 
 
     def _read(self, session_id):
-	"""
 	session_path = self._get_session_path(session_id)
 	try :
 	    data = pickle.load(open(session_path))
@@ -68,6 +67,7 @@ class SessionManager(object):
 	    return {}
 	mc = memcache.Client(session_mc)
 	return pickle.loads(mc.get(session_id) or pickle.dumps({})) or {}
+	"""
 
     def get(self, session_id = None, hmac_digest = None):
         # set up the session state (create it from scratch, or from parameters
@@ -100,8 +100,11 @@ class SessionManager(object):
         return os.path.join(self.session_dir, 'SESSION' + str(session_id))
 
     def set(self, session):
-	mc = memcache.Client(session_mc)
-	mc.set(session.session_id, pickle.dumps(dict(session.items())))
+        session_path = self._get_session_path(session.session_id)
+        session_file = open(session_path, 'wb')
+        pickle.dump(dict(session.items()), session_file)
+        session_file.close() 
+
 
 
     def _get_hmac_digest(self, session_id):
@@ -151,3 +154,4 @@ class TornadoSession(Session):
 
 class InvalidSessionException(Exception):
     pass
+
