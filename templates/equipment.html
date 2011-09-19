@@ -2,20 +2,68 @@
 
 {% block head %}
   <title>器材</title>
+<script type="text/javascript" src="/static/js/jquery.jeditable.js"></script>
+<script type="text/javascript" src="/static/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript">
+function getCookie(name) {
+    var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+    return r ? r[1] : undefined;
+}
+
+$(document).ready(function() {
+/* Init DataTables */
+
+var oTable_equipment = $('#myTable_equipment').dataTable();
+
+/* Apply the jEditable handlers to the table */
+$('td', oTable_equipment.fnGetNodes()).editable( '/modify', {
+    submit:'OK',
+    indicator:'saving...',
+    event:'click',
+    cancel:'cancel',
+    callback:function(sValue, y){
+       oTable_equipment.fnUpdate( sValue, aPos[0], aPos[1] );
+    },
+    submitdata:function(){
+        var res = {
+        //_xsrf: getCookie("_xsrf"),
+
+        row: oTable_equipment.fnGetPosition( this )[0],
+        column: oTable_equipment.fnGetPosition( this )[1]
+       };
+       res['_xsrf'] = getCookie("_xsrf");
+       return res;
+    },
+} );
+
+
 {% end %}
 
 {% block body %}
-  {% for item in res %}
-   <p>
-    {% for attr in item %}
-    <p>
-      {% if type(attr) in [unicode, str] %}
-      {{ attr.decode('gbk') }}
+<table border="1" class="tablesorter" id="myTable_equipment">
+<thead>
+<tr>
+
+</tr>
+</thead>
+<tbody>
+{% for row in res %}
+  <tr id="{{row[0]}}">
+    {% for col in row %}
+      <td>
+      {% if type(col) in [str, unicode] %}
+      {{ col.decode('gbk') }}
       {% else %}
-      {{ attr }}
-     </p>
+      {{ col }}
       {% end %}
+      </td>
     {% end %}
-   </p><p> ================================================================= </p>
-  {% end %}
+  </tr>
+{% end %}
+</tbody>
+</table>
+
+
+
 {% end %}
