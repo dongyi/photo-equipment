@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ <id>urn:iweb:89353BEB-CC67-4030-9D85-BC479A3BE7CC</id>
+ <title>Page list Atom feed</title>
+ <updated>2011-09-19T16:46:56+08:00</updated>
+ <link rel="self" href="feed.xml"/>
+ <generator>iWeb</generator>
+ <author>
+  <name>iWeb</name>
+ </author>
+ <entry>
+  <id>urn:iweb:7D14258F-9220-4911-B7DC-4693FEF86431</id>
+  <title>about</title>
+  <title xmlns="urn:iweb:">about</title>
+  <in-navbar xmlns="urn:iweb:">7D14258F-9220-4911-B7DC-4693FEF86431</in-navbar>
+  <link rel="alternate" href="about.html"/>
+  <updated>2011-09-19T16:46:56.001+08:00</updated>
+  <content>about</content>
+ </entry>
+ <entry>
+  <id>urn:iweb:660748B8-DA34-40A1-BE1A-2345555B61ED</id>
+  <title>equipment</title>
+  <title xmlns="urn:iweb:">equipment</title>
+  <in-navbar xmlns="urn:iweb:">660748B8-DA34-40A1-BE1A-2345555B61ED</in-navbar>
+  <link rel="alternate" href="equipment.html"/>
+  <updated>2011-09-19T16:46:56.002+08:00</updated>
+  <content>equipment</content>
+ </entry>
+</feed>
