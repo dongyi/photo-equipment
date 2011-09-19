@@ -8,8 +8,8 @@ define('debug', default=True)
 define("port", default=8888, help="run on the given port", type=int)
 
 # sina options:
-define("SINA_APP_KEY", default="3268956170", help="sina_app_key")
-define("SINA_APP_SECRET", default="edb869b055dd6c3041999c30f4fbb6ed", help="SINA_APP_SECRET")
+define("SINA_APP_KEY", default="911987553", help="sina_app_key")
+define("SINA_APP_SECRET", default="003f2405df0317bbf8380ff65213b0a6", help="SINA_APP_SECRET")
 
 # facebook options:
 define("facebook_api_key", help="your Facebook application API key",
