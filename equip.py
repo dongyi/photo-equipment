@@ -1,7 +1,7 @@
 #coding=utf8
 from common.base_httphandler import BaseHandler
 import sqlite3
-conn = sqlite3.connect('equipment.db')
+conn = sqlite3.connect('new.db')
 conn.text_factory = str
 cur = conn.cursor()
 item_per_page = 20
