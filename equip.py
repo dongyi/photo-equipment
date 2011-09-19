@@ -10,8 +10,8 @@ item_per_page = 20
 class EquipHandler(BaseHandler):
     def get(self, page):
         page = int(page)
-        min_id, max_id = page*item_per_page, (page+1)*item_per_page
-        sql = "select * from equipment where  %d < id < %d"%(min_id, max_id)
+        start_id = (page-1)*item_per_page
+        sql = "select * from equipment limit %d, %d"%(start_id, item_per_page)
         cur.execute(sql)
         res = cur.fetchall()
         self.render('equipment.html', res=res)
