@@ -31,7 +31,7 @@ from equip import EquipHandler
 
 class MainHandler(BaseHandler):
     def get(self):
-        self.render('index.html')
+        self.render('about.html')
 class LoginHandler(BaseHandler):
     def get(self):
         self.render('login.html')
