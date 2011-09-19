@@ -1,1 +1,6 @@
-{{res}}
+{% for item in res%}
+   {% for attr in item %}
+     {{ attr }}
+   {% end %}
+   < br/>
+{% end %}
