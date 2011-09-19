@@ -5,7 +5,7 @@ import sqlite3
 import sys
 
 conn = sqlite3.connect('equipment.db')
-#conn.text_factory = str
+conn.text_factory = str
 cur = conn.cursor()
 
 
@@ -74,6 +74,7 @@ def process_category(category_link):
             process_page(p)
         except:
             print "fuck 1"
+            raise
             continue
 
 def process_page(page_link):
@@ -83,6 +84,7 @@ def process_page(page_link):
         try:
             process_item(i)
         except:
+            raise
             print "fuck 2"
             continue
 
@@ -95,18 +97,28 @@ def process_item(item_link):
     item_brand = re.findall(item_brand_pattern, page_code),
     item_image = re.findall(item_image_pattern, page_code),
     item = dict()
-
-    item['item_name'] = item_name[0][0] if len(item_name)>0 else 'no name'
-    item['item_type'] = item_type[0][0] if len(item_type)>0 else 'no type'
-    item['item_brand'] = item_brand[0][0] if len(item_brand)>0 else 'no brand'
-    item['item_image'] = item_image[0][0] if len(item_image)>0 else 'no image'
-
+    try:
+        item['item_name'] = item_name[0][0] if len(item_name)>0 else 'no name'
+    except:
+        item['item_name'] = 'no name'
+    try:
+        item['item_type'] = item_type[0][0] if len(item_type)>0 else 'no type'
+    except:
+        item['item_type'] = 'no type'
+    try:
+        item['item_brand'] = item_brand[0][0] if len(item_brand)>0 else 'no brand'
+    except:
+        item['item_brand'] = 'no brand'
+    try:
+        item['item_image'] = item_image[0][0] if len(item_image)>0 else 'no image'
+    except:
+        item['item_image'] = 'no image'
     for attr, p in attr_patterns.items():
         try:
             res = re.findall(p, page_code)
             if len(res) > 0:
-                #item['attr_'+str(attr)] = res[0]
-                item[attr_convert_dict[str(attr)]] = res[0]
+                item['attr_'+str(attr)] = res[0]
+                #item[attr_convert_dict[str(attr)]] = res[0]
         except:
             continue
     fields = []
