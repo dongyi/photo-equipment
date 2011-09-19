@@ -50,8 +50,6 @@ class LoginCheckHandler(BaseHandler):
             self.session.save()
             session_mc_client.set(str(uid), self.session.session_id)
             back_to_url = self.session.get('login_back_to_url','/')
-            if check_user(uid) == False:
-                return self.redirect('/profile/register')
             return self.redirect(back_to_url)
 
 class LoginHandler(BaseHandler):
