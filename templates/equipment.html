@@ -2,6 +2,7 @@
 
 {% block head %}
   <title>器材</title>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
 <script type="text/javascript" src="/static/js/jquery.jeditable.js"></script>
 <script type="text/javascript" src="/static/js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="/static/js/jquery.dataTables.min.js"></script>
@@ -36,8 +37,8 @@ $('td', oTable_equipment.fnGetNodes()).editable( '/modify', {
        return res;
     },
 } );
-
-
+});
+</script>
 {% end %}
 
 {% block body %}
