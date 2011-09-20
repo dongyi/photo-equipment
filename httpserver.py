@@ -27,7 +27,7 @@ from connect.douban_auth import LogoutHandler as DBLogoutHandler
 from connect.facebook_auth import AuthLoginHandler as FBAuthLoginHandler
 from connect.facebook_auth import AuthLogoutHandler as FBAuthLogoutHandler
 
-from equip import EquipmentHandler, EquipmentListHandler
+from equip import EquipmentHandler, EquipmentListHandler, CategoryHandler
 
 class MainHandler(BaseHandler):
     def get(self):
@@ -54,6 +54,7 @@ class Application(tornado.web.Application):
             (r'/proxy/(.*)', ProxyHandler),
             (r'/equipment_list/(.*)', EquipmentListHandler),
             (r'/equipment/(.*)', EquipmentHandler),
+            (r'/category/(.*)', CategoryHandler),
             (r"/wblogin", AuthLoginHandler),
             (r"/wblogout", AuthLogoutHandler),
             (r"/wblogin_check", AuthLoginCheckHandler),

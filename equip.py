@@ -30,3 +30,23 @@ class EquipmentHandler(BaseHandler):
         cur.execute(sql)
         res = cur.fetchall()
         self.render('equipment.html', res=res)
+
+class CategoryHandler(BaseHandler):
+    def get(self, category):
+        if category == '':
+            self.render('category.html')
+        else:
+            category = category.split('/')
+            if len(category) > 1:
+                category, page = category
+            else:
+                category, page = category[0], 1
+            page = int(page)
+            start_id = (page-1)*item_per_page
+            sql = "select * from equipment where item_type='%s' limit %d, %d"%(category, start_id, item_per_page)
+            cur.execute(sql)
+            res = cur.fetchall()
+            prev = max(1, page-1)
+            next = min(62, page+1)
+            cur_page = page
+            self.render('equipment_list.html', res=res, prev=prev, next=next, cur_page=cur_page)
