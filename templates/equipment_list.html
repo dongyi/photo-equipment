@@ -15,7 +15,7 @@
  <p>{{ item[0] }}. <a href="/equipment/{{item[0]}}">{{item[1]}}</a></p>
 ---
   {% for cnt, attr in enumerate(item) %}
-   {{ attr }} <br/>
+  <p> {% if cnt == 4 %} <img src="{{ '/static/'+attr }}" /> {% else %} {{ attr }} {% end %}</p>
   {% end %}
 ----
 {% end %}
