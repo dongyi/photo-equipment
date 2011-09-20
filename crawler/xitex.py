@@ -13,7 +13,8 @@ page_number_pattern = re.compile("""(?<=/)\d(?=</span>)""")
 item_pattern = re.compile("""(?<=<td class="t-name"><a href=").*(?=" target="_blank">)""")
 item_id_pattern = re.compile("(?<=id=)\d+")
 item_name_pattern = re.compile("""(?<=alt=").*?(?=">)""")
-item_type_pattern = re.compile("""(?<=category_2=\d">).*?(?=</a>)""")
+#item_type_pattern = re.compile("""(?<=category_2=\d">).*?(?=</a>)""")
+item_type_pattern = re.compile(r"""(?<=产品类型：</strong>).*?(?=</li>)""")
 item_brand_pattern = re.compile("""(?<=brand_from=.">).*?(?=</a>)""")
 item_image_pattern = re.compile("""(?<=img\ src=\")uploads.*jpg""")
 
@@ -91,26 +92,29 @@ def process_page(page_link):
 def process_item(item_link):
     item_id = re.findall(item_id_pattern, item_link)[0]
     item_detail_link = "http://www2.xitek.com/production/product.php?a=basic&id="+str(item_id)
-    page_code = urllib2.urlopen(item_detail_link).read()
-    item_name = re.findall(item_name_pattern, page_code),
-    item_type = re.findall(item_type_pattern, page_code),
-    item_brand = re.findall(item_brand_pattern, page_code),
-    item_image = re.findall(item_image_pattern, page_code),
+    page_code = urllib2.urlopen(item_detail_link).read().decode('gbk').encode('utf8')
+    item_name = re.findall(item_name_pattern, page_code)
+    item_type = re.findall(item_type_pattern, page_code)
+    item_brand = re.findall(item_brand_pattern, page_code)
+    item_image = re.findall(item_image_pattern, page_code)
     item = dict()
+    print item_type
+    print item_brand
+    print item_image
     try:
-        item['item_name'] = item_name[0][0] if len(item_name)>0 else 'no name'
+        item['item_name'] = item_name[0] if len(item_name)>0 else 'no name'
     except:
         item['item_name'] = 'no name'
     try:
-        item['item_type'] = item_type[0][0] if len(item_type)>0 else 'no type'
+        item['item_type'] = item_type[0] if len(item_type)>0 else 'no type'
     except:
         item['item_type'] = 'no type'
     try:
-        item['item_brand'] = item_brand[0][0] if len(item_brand)>0 else 'no brand'
+        item['item_brand'] = item_brand[0] if len(item_brand)>0 else 'no brand'
     except:
         item['item_brand'] = 'no brand'
     try:
-        item['item_image'] = item_image[0][0] if len(item_image)>0 else 'no image'
+        item['item_image'] = item_image[0] if len(item_image)>0 else 'no image'
     except:
         item['item_image'] = 'no image'
     for attr, p in attr_patterns.items():
@@ -145,3 +149,4 @@ def main(cnt):
 
 if __name__ == '__main__':
     main(int(sys.argv[1]))
+    #process_item('id=962')

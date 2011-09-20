@@ -12,10 +12,10 @@
 </div>
 
 {% for item in res %}
- <p>{{ item[0] }}. <a href="/equipment/{{item[0]}}">{{item[87].decode('gbk')}}</a></p>
+ <p>{{ item[0] }}. <a href="/equipment/{{item[0]}}">{{item[87]}}</a></p>
 ---
   {% for cnt, attr in enumerate(item) %}
-   {{ cnt }},{% if type(attr) in [str, unicode] %} {{ attr.decode('gbk') }} {% else %} {{ attr }} {% end %}<br/>
+   {{ cnt }},{{ attr }} <br/>
   {% end %}
 ----
 {% end %}
