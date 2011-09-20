@@ -13,7 +13,8 @@ class EquipmentListHandler(BaseHandler):
     def get(self, page):
         page = int(page)
         start_id = (page-1)*item_per_page
-        sql = "select * from equipment limit %d, %d"%(start_id, item_per_page)
+        field_id = "item_name, item_type, item_brand, item_image"
+        sql = "select %s from equipment limit %d, %d"%(field_id, start_id, item_per_page)
         cur.execute(sql)
         res = cur.fetchall()
         prev = max(1, page-1)
