@@ -27,10 +27,10 @@ class EquipmentListHandler(BaseHandler):
 
 class EquipmentHandler(BaseHandler):
     def get(self, equipmentid):
-        sql = "select * from equipment where id=%d"%(int(equipmentid))
+        sql = "select id, item_name, item_brand, item_type, item_image from equipment where id=%d"%(int(equipmentid))
         cur.execute(sql)
         res = cur.fetchall()
-        self.render('equipment.html', res=res)
+        self.render('equipment.html', res=res[0])
 
 class CategoryHandler(BaseHandler):
     def get(self, category):
