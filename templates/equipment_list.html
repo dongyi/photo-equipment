@@ -12,7 +12,7 @@
 </div>
 
 {% for item in res %}
- <p>{{ item[0] }}. <a href="/equipment/{{item[0]}}">{{item[0]}}</a></p>
+ <p>{{ item[0] }}. <a href="/equipment/{{item[0]}}">{{item[1]}}</a></p>
 ---
   {% for cnt, attr in enumerate(item) %}
    {{ attr }} <br/>
