@@ -7,7 +7,6 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 from tornado.options import define, options
-from common.util import check_user
 from common.base_httphandler import BaseHandler
 
 
