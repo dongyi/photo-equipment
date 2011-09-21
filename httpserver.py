@@ -12,7 +12,6 @@ import tornado.web
 import tornado.autoreload
 
 import common.session
-import config.web_config
 
 #controllers:
 from common.base_httphandler import BaseHandler
@@ -27,7 +26,7 @@ from connect.douban_auth import LogoutHandler as DBLogoutHandler
 from connect.facebook_auth import AuthLoginHandler as FBAuthLoginHandler
 from connect.facebook_auth import AuthLogoutHandler as FBAuthLogoutHandler
 
-from equip import EquipmentHandler, EquipmentListHandler, CategoryHandler
+from controller.equip import EquipmentHandler, EquipmentListHandler, CategoryHandler
 
 class MainHandler(BaseHandler):
     def get(self):
