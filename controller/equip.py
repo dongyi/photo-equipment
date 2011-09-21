@@ -1,5 +1,7 @@
 #coding=utf8
 from common.base_httphandler import BaseHandler
+from common.decorator import login_required
+
 import sqlite3
 conn = sqlite3.connect('new.db')
 conn.text_factory = str
