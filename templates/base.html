@@ -23,11 +23,16 @@
   <div class="bd">
     <div class="top-nav-items">
       <ul>
+        <li><a href="/">首页</a></li>
         <li><a href="/equipment_list/1">器材</a></li>
         <li><a href="/category/">分类</a></li>
       </ul>
      </div>
-    <div class="top-nav-info"><a href="/1">login</a></div>
+    <div class="top-nav-info">
+      <a href="/login">登录</a>
+      <a href="/login">{% if current_user %} {{ current_user }} {% else %} no name {% end %}</a>
+      <a href="/logout">退出</a>
+    </div>
   </div>
   </div>
    <div id="wrapper">
