@@ -41,7 +41,7 @@ settings = dict(
                 debug=True,
                 session_secret='some secret password!!',
                 session_dir='sessions',
-                template_path=os.path.join(os.path.dirname(__file__), "templates"),
+                template_path=os.path.join(os.path.dirname(__file__), "templates", "new"),
                 static_path=os.path.join(os.path.dirname(__file__), "static"),
                 xsrf_cookies=False,
             )

@@ -1,0 +1,19 @@
+.top-nav {
+clear: both;
+width: 100%;
+color: #D4D4D4;
+margin-bottom: 20px;
+height: 30px;
+border-bottom: 1px dashed #D4D4D4;
+}
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote {
+margin: 0;
+padding: 0;
+}
+#header::after, .site-nav::after, .top-nav-items::after, .top-nav::after, .site-nav .bd::after {
+content: ' 0020';
+display: block;
+clear: both;
+height: 0;
+}
+
