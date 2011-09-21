@@ -12,12 +12,12 @@
 </div>
 
 {% for item in res %}
- <p>{{ item[0] }}. <a href="/equipment/{{item[0]}}">{{item[1]}}</a></p>
----
-  {% for cnt, attr in enumerate(item) %}
-  <p> {% if cnt == 4 and attr != "no image" %}<img src="{{ '/static/'+attr }}" /> {% else %} {{ attr }} {% end %}</p>
-  {% end %}
-----
+ <p>{{ item.id }}. <a href="/equipment/{{item.id}}">{{item.item_name}}</a></p>
+  <p> {% if item.item_image != 'no image' %}<img src="{{ '/static/'+ item.item_image }}" />{% end %} </p>
+  <p>  name: {{ item.item_name }} </p>
+  <p>  type: {{ item.item_type }} </p>
+  <p>  brand: {{ item.item_brand }} </p>
+---------------------------
 {% end %}
 
 <div class="paginator">

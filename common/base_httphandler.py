@@ -20,6 +20,10 @@ absolute_http_url_re = re.compile(r"^https?://", re.I)
 
 
 class BaseHandler(tornado.web.RequestHandler):
+    @property
+    def db(self):
+        return self.application.db
+
     def __init__(self, *argc, **argkw):
         super(BaseHandler, self).__init__(*argc, **argkw)
         self.path = ''

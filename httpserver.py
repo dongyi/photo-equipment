@@ -10,9 +10,11 @@ import tornado.ioloop
 import tornado.options
 import tornado.web
 import tornado.autoreload
+from tornado.options import options
 
 import common.session
 import config.web_config
+import config.db_config
 
 #controllers:
 from common.base_httphandler import BaseHandler
@@ -69,6 +71,10 @@ class Application(tornado.web.Application):
             ]
         tornado.web.Application.__init__(self, handlers, **settings)
         self.session_manager = common.session.TornadoSessionManager(settings["session_secret"], settings["session_dir"])
+        self.db = tornado.database.Connection(
+            host=options.mysql_host, database=options.mysql_database,
+            user=options.mysql_user, password=options.mysql_password)
+
 
 def main(port):
     tornado.options.parse_command_line()
