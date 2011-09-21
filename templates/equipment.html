@@ -7,25 +7,17 @@
 
 {% block body %}
 
-          <div id="id1" style="height: 41px; left: 40px; position: absolute; top: 78px; width: 620px; z-index: 1; " class="style_SkipStroke shape-with-text">
-            <div class="text-content graphic_shape_layout_style_default_External_620_41" style="padding: 0px; ">
-              <div class="graphic_shape_layout_style_default"></div>
-            </div>
-          </div>
 
 
-
-          <div id="id2" style="height: 41px; left: 40px; position: absolute; top: 78px; width: 620px; z-index: 1; " class="style_SkipStroke shape-with-text">
             <div class="text-content graphic_shape_layout_style_default_External_620_41" style="padding: 0px; ">
               <div class="graphic_shape_layout_style_default">
                 <p style="padding-bottom: 0pt; padding-top: 0pt; font-family: 'STHeitiSC-Medium', 'Heiti SC'; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 700; line-height: 26px;" class="Title">器材</p>
               </div>
             </div>
-          </div>
 
 
 
-          <div id="id3" style="height: 249px; left: 234px; position: absolute; top: 158px; width: 268px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
+          <div id="id3" style="height: 249px; left: 734px; position: absolute; top: 158px; width: 268px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
             <div class="text-content graphic_textbox_layout_style_default_External_268_249" style="padding: 0px; ">
               <div class="graphic_textbox_layout_style_default">
                 <p style="padding-top: 0pt; " class="Body"><span style="font-family: 'STHeitiSC-Medium', 'Heiti SC'; font-size: 14px; font-stretch: normal; font-style: normal; font-weight: 700; line-height: 17px; ">名字 : {{ res[1] }}</span><br /></p>
@@ -42,13 +34,13 @@
 
 
 
-          <div style="height: 124px; width: 186px;  height: 124px; left: 18px; position: absolute; top: 155px; width: 186px; z-index: 1; " class="tinyText style_SkipStroke_2 stroke_0 shadow_0">
+          <div style="height: 124px; width: 186px;  height: 124px; left: 518px; position: absolute; top: 155px; width: 186px; z-index: 1; " class="tinyText style_SkipStroke_2 stroke_0 shadow_0">
             <img src="/static/{{ res[4] }}" alt="" style="border: none; height: 124px; width: 187px; " />
           </div>
 
 
 
-          <div id="id4" style="height: 106px; left: 18px; position: absolute; top: 293px; width: 185px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
+          <div id="id4" style="height: 106px; left: 518px; position: absolute; top: 293px; width: 185px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
             <div class="text-content graphic_textbox_layout_style_default_External_185_106" style="padding: 0px; ">
               <div class="graphic_textbox_layout_style_default">
                 <p style="padding-top: 0pt; " class="Body"><span style="font-family: 'STHeitiSC-Medium', 'Heiti SC'; font-size: 14px; font-stretch: normal; font-style: normal; font-weight: 700; line-height: 17px; ">用过</span><br /></p>
@@ -61,13 +53,7 @@
 
 
 
-          <div id="id5" style="height: 54px; left: 18px; position: absolute; top: 414px; width: 485px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
-            <div class="text-content graphic_textbox_layout_style_default_External_485_54" style="padding: 0px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="Body">-----------------------------------------------------------------------------------</p>
-              </div>
-            </div>
-          </div>
+          <div id="id6" style="height: 100px; left: 513px; position: absolute; top: 500px; width: 173px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
           <div id="comment">
           评论
           <form action="comment" method="POST">
@@ -75,8 +61,9 @@
             <input type="submit" value="提交"></input>
           </form>
           </div>
+          </div>
 
-          <div id="id6" style="height: 100px; left: 513px; position: absolute; top: 158px; width: 173px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
+          <div id="id6" style="height: 100px; left: 713px; position: absolute; top: 158px; width: 173px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
             <div class="text-content graphic_textbox_layout_style_default_External_173_100" style="padding: 0px; ">
               <div class="graphic_textbox_layout_style_default"></div>
             </div>
@@ -84,7 +71,7 @@
 
 
 
-          <div id="id7" style="height: 100px; left: 513px; position: absolute; top: 266px; width: 173px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
+          <div id="id7" style="height: 100px; left: 713px; position: absolute; top: 266px; width: 173px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
             <div class="text-content graphic_textbox_layout_style_default_External_173_100" style="padding: 0px; ">
               <div class="graphic_textbox_layout_style_default"></div>
             </div>
@@ -93,25 +80,3 @@
         </div>
 
 {% end %}
-<!--table border="1" class="tablesorter" id="myTable_equipment">
-<thead>
-<tr>
-
-</tr>
-</thead>
-<tbody>
-{% for row in res %}
-  <tr id="{{row[0]}}">
-    {% for col in row %}
-      <td>
-      {% if type(col) in [str, unicode] %}
-      {{ col.decode('gbk') }}
-      {% else %}
-      {{ col }}
-      {% end %}
-      </td>
-    {% end %}
-  </tr>
-{% end %}
-</tbody>
-</table-->
