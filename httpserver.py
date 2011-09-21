@@ -12,6 +12,7 @@ import tornado.web
 import tornado.autoreload
 
 import common.session
+import config.web_config
 
 #controllers:
 from common.base_httphandler import BaseHandler
