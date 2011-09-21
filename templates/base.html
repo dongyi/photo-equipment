@@ -6,79 +6,39 @@
     <meta name="iWeb-Build" content="local-build-20110919" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <meta name="viewport" content="width=700" />
-
-    <link rel="stylesheet" type="text/css" media="screen,print" href="/static/css/equipment.css" />
+    <style type="text/css">
+	.item-reply { border-bottom:1px dashed #ddd;margin-top:4px; }
+	.recreplylst { padding-bottom:6px; }
+	.recreplylst .simplelst { border-bottom:none; }
+	.last { border:none; }
+    </style>
+    <link rel="stylesheet" type="text/css" media="screen,print" href="/static/css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen,print" href="/static/css/main2.css" />
     <!--[if lt IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='/static/css/equipmentIE.css'/><![endif]-->
     <!--[if gte IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='Media/IE8.css'/><![endif]-->
-
    {% block head %}{% end %}
   </head>
-  <body style="background: rgb(247, 246, 246); margin: 0pt; ">
-    <div style="text-align: center; ">
-      <div style="margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0px; overflow: hidden; position: relative; word-wrap: break-word;  background: rgb(247, 246, 246); text-align: left; width: 700px; " id="body_content">
-        <div style="float: left; height: 0px; line-height: 0px; margin-left: 0px; position: relative; width: 700px; z-index: 10; " id="header_layer">
-          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
-        </div>
-        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 0; " id="nav_layer">
-          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
-          <div style="height: 1px; line-height: 1px; " class="tinyText"> </div>
-          <div class="com-apple-iweb-widget-navbar flowDefining" id="widget0" style="margin-left: 0px; margin-top: 24px; opacity: 1.00; position: relative; width: 700px; z-index: 1; ">
-
-            <div id="widget0-navbar" class="navbar">
-
-
-              <div id="widget0-bg" class="navbar-bg">
-
-
-                <ul id="widget0-navbar-list" class="navbar-list">
- <li></li>
-</ul>
-
-
-</div>
-
-
-</div>
-          </div>
-          <div style="clear: both; height: 0px; line-height: 0px; " class="spacer"> </div>
-        </div>
-        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 5; " id="body_layer">
-          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
-          <div style="height: 120px; width: 700px;  height: 120px; left: 0px; position: absolute; top: 0px; width: 700px; z-index: 1; " class="tinyText">
-            <div style="position: relative; width: 700px; ">
-              <img src="/static/images/shapeimage_1.png" alt="" style="height: 120px; left: 0px; position: absolute; top: 0px; width: 700px; " />
-            </div>
-          </div>
-
-
-
-          <div id="id1" style="height: 41px; left: 40px; position: absolute; top: 78px; width: 620px; z-index: 1; " class="style_SkipStroke shape-with-text">
-            <div class="text-content graphic_shape_layout_style_default_External_620_41" style="padding: 0px; ">
-              <div class="graphic_shape_layout_style_default"></div>
-            </div>
-          </div>
-
-
-
-          <div id="id2" style="height: 41px; left: 40px; position: absolute; top: 78px; width: 620px; z-index: 1; " class="style_SkipStroke shape-with-text">
-            <div class="text-content graphic_shape_layout_style_default_External_620_41" style="padding: 0px; ">
-              <div class="graphic_shape_layout_style_default">
-                <p style="padding-bottom: 0pt; padding-top: 0pt; font-family: 'STHeitiSC-Medium', 'Heiti SC'; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 700; line-height: 26px;" class="Title">器材</p>
-
-              </div>
-            </div>
-          </div>
-          <div style="height: 500px; line-height: 500px; " class="spacer"> </div>
-  {% block body %}{% end %}
-        </div>
-        <div style="height: 100px; margin-left: 0px; position: relative; width: 700px; z-index: 15; " id="footer_layer">
-          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
-          <a href="http://www.apple.com.cn/mac" title="http://www.apple.com.cn/mac"><img src="/static/images/mwmac.png" alt="在 Mac 上制作" style="border: none; height: 50px; left: 280px; opacity: 0.35; position: absolute; top: 30px; width: 139px; z-index: 1; " id="id3" />
-
-</a>
-        </div>
-      </div>
-    </div>
-
-  </body>
-</html>
+  <body>
+  <div class="top-nav">
+  <div class="bd">
+    <div class="top-nav-items">
+      <ul>
+        <li><a href="/equipment_list/1">器材</a></li>
+        <li><a href="/category/">分类</a></li>
+      </ul>
+     </div>
+    <div class="top-nav-info"><a href="/1">login</a></div>
+  </div>
+  </div>
+   <div id="wrapper">
+   <div id="header">
+     this is logo here
+   </div>
+   <div id="content">
+   {% block body %}{% end %}
+   </div>
+   <div id="footer">
+   this is footer
+   </div>
+   </div>
+  </body> 

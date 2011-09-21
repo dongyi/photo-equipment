@@ -31,7 +31,7 @@ from controller.equip import EquipmentHandler, EquipmentListHandler, CategoryHan
 
 class MainHandler(BaseHandler):
     def get(self):
-        self.render('about.html')
+        self.render('index.html')
 class LoginHandler(BaseHandler):
     def get(self):
         self.render('login.html')
@@ -41,7 +41,7 @@ settings = dict(
                 debug=True,
                 session_secret='some secret password!!',
                 session_dir='sessions',
-                template_path=os.path.join(os.path.dirname(__file__), "templates", "new"),
+                template_path=os.path.join(os.path.dirname(__file__), "templates"),
                 static_path=os.path.join(os.path.dirname(__file__), "static"),
                 xsrf_cookies=False,
             )
