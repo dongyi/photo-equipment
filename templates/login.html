@@ -1,11 +1,42 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+{% extends "base.html" %}
+{% block head %}
   <title>登录</title>
-</head>
+{% end %}
 
-<body id="login" onload="">
+{% block body %}
+
+<div id="content">
+  <h1>登录</h1>
+  <div class="article">
+
+<form id="lzform" name="lzform" method="post" action="/account/login" onsubmit="return validateForm(this);">
+  <div style="display:none;">
+      <img src="/static/images/blank.gif" />
+      <img src="/static/images/blank.gif"  />
+  </div>
+  <input name="source" type="hidden" value="simple"/>
+    <input name="redir" type="hidden" value="http://www.douban.com/"/>
+    <div class="item">
+        <label>邮箱</label>
+        <input id="email" name="form_email" type="email" class="basic-input" maxlength="60" value="" tabindex="1"/>
+    </div>
+    <div class="item">
+        <label>密码</label>
+        <input id="password" name="form_password" type="password" class="basic-input" maxlength="20" tabindex="2"/>
+    </div>
+    <div class="item">
+        <label>&nbsp;</label>
+        <p class="remember">
+            <input type="checkbox" id="remember" name="remember" tabindex="4"/>
+            <label for="remember" class="remember">下次自动登录</label>&nbsp;|&nbsp;<a href="/account/resetpassword">忘记密码了</a>
+        </p>
+    </div>
+    <div class="item">
+        <label>&nbsp;</label>
+        <input type="submit" value="登录" name="user_login" class="btn-submit" tabindex="5"/>
+    </div>
+</form>
+
 <p><h2>选择下列方式登陆</h2></p>
     <p><a href="/wblogin"><img
     src="/static/images/sina_login.png"
@@ -19,5 +50,4 @@
     <p><a href="/fblogin"><img
     src="/static/images/facebook_login.png" style="margin-left: 50px; border-top-width: 11px;"></a></p>
     <p><a href="/templogin">临时打酱油通道</a></p>
-</body>
-</html>
+{% end %}
