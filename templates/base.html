@@ -29,9 +29,9 @@
       </ul>
      </div>
     <div class="top-nav-info">
-      <a href="/login">登录</a>
-      <a href="/login">{% if current_user %} {{ current_user }} {% else %} no name {% end %}</a>
-      <a href="/logout">退出</a>
+      <a href="/account/login">登录</a>
+      <a href="/account/login">{% if current_user %} {{ current_user }} {% else %} <a href="/account/signup">signup</a> {% end %}</a>
+      <a href="/account/logout">退出</a>
     </div>
   </div>
   </div>
@@ -46,4 +46,4 @@
    this is footer
    </div>
    </div>
-  </body> 
+  </body>

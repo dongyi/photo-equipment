@@ -30,6 +30,7 @@ from connect.facebook_auth import AuthLoginHandler as FBAuthLoginHandler
 from connect.facebook_auth import AuthLogoutHandler as FBAuthLogoutHandler
 
 from controller.equip import EquipmentHandler, EquipmentListHandler, CategoryHandler
+from controller.account import AccountHandler
 
 class MainHandler(BaseHandler):
     def get(self):
@@ -57,6 +58,8 @@ class Application(tornado.web.Application):
             (r'/equipment_list/(.*)', EquipmentListHandler),
             (r'/equipment/(.*)', EquipmentHandler),
             (r'/category/(.*)', CategoryHandler),
+            (r'/account/(.*)', AccountHandler),
+
             (r"/wblogin", AuthLoginHandler),
             (r"/wblogout", AuthLogoutHandler),
             (r"/wblogin_check", AuthLoginCheckHandler),

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block head %}
+ <title>signup</title>
+{% end %}
+
+{% block body %}
+  come from {{ site }}
+
+
+    <div id="content">
+
+    <h1>欢迎加入</h1>
+
+    <form name="lzform" name="" method="post" action="/account/signup">
+        <div class="item extra-tips">
+            <label>邮箱</label>
+            <input id="email" name="form_email" type="text" class="basic-input" maxlength="60" tabindex="1" value=""/>
+        </div>
+        <div class="suggestion">
+            <div id="email_suggestion"></div>
+        </div>
+        <div class="item extra-tips">
+            <label>密码</label>
+            <input id="password" name="form_password" type="password" class="basic-input" tabindex="2" maxlength="20"/>
+        </div>
+        <div class="item extra-tips">
+            <label>名号</label>
+            <input id="name" name="form_name" type="text"
+            class="basic-input" maxlength="15" tabindex="3" value=""/>
+        </div>
+        <div class="suggestion">
+            <span class="tips">第一印象很重要，起个响亮的名号吧</span>
+        </div>
+        <div class="item loc-item">
+            <input type="hidden" name="loc" value="108296"/>
+        </div>
+        <!--div class="item captcha-item">
+            <label>验证码</label>
+            <p><img src="http://www.douban.com/misc/captcha?id=KPt2QZ0hcHZgQEtNxPmCAZzL&amp;size=s" class="captcha-img"/><span class="tips">看不清？<a href="" id="cap_resend">换一个</a></span></p>
+            <input type="text" name="captcha-solution" class="basic-input captcha" id="captcha" tabindex="4" maxlength="10"/>
+            <input type="hidden" value="KPt2QZ0hcHZgQEtNxPmCAZzL" name="captcha-id">
+            <span class="validate-error" id="frm_error"></span>
+        </div-->
+        <div class="item">
+            <label>&nbsp;</label>
+            <p class="agreement"><input type="checkbox" id="agreement" name="form_agreement" tabindex="5" /><label for="agreement" class="agreement-label">我已经认真阅读并同意《<a target="_blank" href="/about?policy=agreement">使用协议</a>》。</label></p>
+        </div>
+        <div class="item-submit">
+            <label>&nbsp;</label>
+            <input type="submit" value="注册" id="button" class="btn-submit disabled" tabindex="6" title="阅读并同意《使用协议》方可注册。"/>
+        </div>
+    </form>
+</div>
+
+{% end %}

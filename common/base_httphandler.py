@@ -54,7 +54,7 @@ class BaseHandler(tornado.web.RequestHandler):
         return self.render_string('_error.htm', status_code=status_code, exception=exception, **kwargs)
 
     def get_current_user(self):
-        return 'no name'
+        return None
 
 class ReqMixin(object):
     user_callback = {}
