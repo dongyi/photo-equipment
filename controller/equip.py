@@ -34,6 +34,7 @@ class EquipmentHandler(BaseHandler):
         if action == 'new':
             return self.render('edit_equipment.html')
         else:
+            equipmentid = action
             sql = "select id, item_name, item_brand, item_type, item_image from equipment where id=%d"%(int(equipmentid))
             res = self.db.get(sql)
             self.render('equipment.html', res=res)
