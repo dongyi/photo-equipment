@@ -32,7 +32,13 @@ class EquipmentListHandler(BaseHandler):
 class EquipmentHandler(BaseHandler):
     def get(self, action):
         if action == 'new':
-            return self.render('edit_equipment.html')
+            item = None
+            return self.render('edit_equipment.html', item=item)
+        elif action == 'edit':
+            itemid = self.get_argument('itemid')
+            sql = "select * from equipment where id=%s"%str(itemid)
+            item = self.db.get(sql)
+            return self.render('edit_equipment.html', item=item)
         else:
             equipmentid = action
             sql = "select id, item_name, item_brand, item_type, item_image from equipment where id=%d"%(int(equipmentid))
