@@ -18,6 +18,12 @@
            {{ xsrf_form_html() }}
 <table>
 <tbody>
+<input type="hidden" value={% if item %}{{ item.id }}{% else %}  {% end %}></input>
+<tr><td>名称</td><td><input type="text" name="item_name" value={% if item %}{{ item.item_name }}{% else %}  {% end %}></input></td></tr>
+<tr><td>品牌</td><td><input type="text" name="item_brand" value={% if item %}{{ item.item_brand }}{% else %}  {% end %}></input></td></tr>
+<tr><td>类型</td><td><input type="text" name="item_type" value={% if item %}{{ item.item_type }}{% else %}  {% end %}></input></td></tr>
+<tr><td>图片</td><td><input type="text" name="item_image" value={% if item %}{{ item.item_image }}{% else %}  {% end %}></input></td></tr>
+
 <tr><td>用户自选功能</td><td><input type="text" name="attr_494" value={% if item %}{{ item.attr_494 }}{% else %}  {% end %}></input></td></tr>
 <tr><td>产品类型</td><td><input type="text" name="attr_496" value={% if item %}{{ item.attr_496 }}{% else %}  {% end %}></input></td></tr>
 <tr><td>材质</td><td><input type="text" name="attr_490" value={% if item %}{{ item.attr_490 }}{% else %}  {% end %}></input></td></tr>
@@ -111,7 +117,7 @@
 <tr><td>自动曝光锁</td><td><input type="text" name="attr_353" value={% if item %}{{ item.attr_353 }}{% else %}  {% end %}></input></td></tr>
 <tr><td>自动包围曝光</td><td><input type="text" name="attr_352" value={% if item %}{{ item.attr_352 }}{% else %}  {% end %}></input></td></tr>
 <tr><td>测光范围</td><td><input type="text" name="attr_351" value={% if item %}{{ item.attr_351 }}{% else %}  {% end %}></input></td></tr>
-
+<tr><td></td><td><input type="submit" value="save"></input></td></tr>
 </tbody>
 </table>
 </form>
