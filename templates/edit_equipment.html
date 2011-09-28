@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <title>器材</title>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+{% end %}
+
+{% block body %}
+
+
+
+            <div class="text-content graphic_shape_layout_style_default_External_620_41" style="padding: 0px; ">
+              <div class="graphic_shape_layout_style_default">
+                <p style="padding-bottom: 0pt; padding-top: 0pt; font-family: 'STHeitiSC-Medium', 'Heiti SC'; font-size: 28px; font-stretch: normal; font-style: normal; font-weight: 700; line-height: 26px;" class="Title">修改器材</p>
+              </div>
+            </div>
+<form action="/equipment/edit" method="POST">
+           {{ xsrf_form_html() }}
+<table>
+<tbody>
+<tr><td>用户自选功能</td><td><input type="text" name="attr_494"></input></td></tr>
+<tr><td>产品类型</td><td><input type="text" name="attr_496"></input></td></tr>
+<tr><td>材质</td><td><input type="text" name="attr_490"></input></td></tr>
+<tr><td>视频接口</td><td><input type="text" name="attr_491"></input></td></tr>
+<tr><td>备注</td><td><input type="text" name="attr_492"></input></td></tr>
+<tr><td>光圈叶片</td><td><input type="text" name="attr_24"></input></td></tr>
+<tr><td>最大放大倍率</td><td><input type="text" name="attr_25"></input></td></tr>
+<tr><td>驱动马达</td><td><input type="text" name="attr_26"></input></td></tr>
+<tr><td>滤镜口径</td><td><input type="text" name="attr_27"></input></td></tr>
+<tr><td>视角</td><td><input type="text" name="attr_21"></input></td></tr>
+<tr><td>测光模式</td><td><input type="text" name="attr_289"></input></td></tr>
+<tr><td>ISO感光度</td><td><input type="text" name="attr_288"></input></td></tr>
+<tr><td>自动对焦点选择</td><td><input type="text" name="attr_405"></input></td></tr>
+<tr><td>屈光度调节范围</td><td><input type="text" name="attr_404"></input></td></tr>
+<tr><td>对焦屏</td><td><input type="text" name="attr_340"></input></td></tr>
+<tr><td>色彩滤镜</td><td><input type="text" name="attr_402"></input></td></tr>
+<tr><td>反光镜</td><td><input type="text" name="attr_342"></input></td></tr>
+<tr><td>景深预视</td><td><input type="text" name="attr_343"></input></td></tr>
+<tr><td>视野率</td><td><input type="text" name="attr_281"></input></td></tr>
+<tr><td>支持语言</td><td><input type="text" name="attr_283"></input></td></tr>
+<tr><td>对焦模式</td><td><input type="text" name="attr_285"></input></td></tr>
+<tr><td>手动对焦</td><td><input type="text" name="attr_287"></input></td></tr>
+<tr><td>AF辅助灯</td><td><input type="text" name="attr_286"></input></td></tr>
+<tr><td>取景器信息</td><td><input type="text" name="attr_522"></input></td></tr>
+<tr><td>Live View 对焦模式</td><td><input type="text" name="attr_414"></input></td></tr>
+<tr><td>闪光控制模式</td><td><input type="text" name="attr_298"></input></td></tr>
+<tr><td>Live View 显示</td><td><input type="text" name="attr_413"></input></td></tr>
+<tr><td>最近对焦距离</td><td><input type="text" name="attr_370"></input></td></tr>
+<tr><td>曝光补偿</td><td><input type="text" name="attr_295"></input></td></tr>
+<tr><td>快门速度</td><td><input type="text" name="attr_292"></input></td></tr>
+<tr><td>曝光模式</td><td><input type="text" name="attr_290"></input></td></tr>
+<tr><td>尺寸</td><td><input type="text" name="attr_368"></input></td></tr>
+<tr><td>短片格式</td><td><input type="text" name="attr_313"></input></td></tr>
+<tr><td>静态图像格式</td><td><input type="text" name="attr_312"></input></td></tr>
+<tr><td>存储卡</td><td><input type="text" name="attr_310"></input></td></tr>
+<tr><td>短片尺寸</td><td><input type="text" name="attr_315"></input></td></tr>
+<tr><td>静态图像尺寸</td><td><input type="text" name="attr_314"></input></td></tr>
+<tr><td>LCD类型</td><td><input type="text" name="attr_273"></input></td></tr>
+<tr><td>LCD尺寸</td><td><input type="text" name="attr_274"></input></td></tr>
+<tr><td>LCD像素</td><td><input type="text" name="attr_275"></input></td></tr>
+<tr><td>厂家推荐价格</td><td><input type="text" name="attr_277"></input></td></tr>
+<tr><td>有效像素</td><td><input type="text" name="attr_278"></input></td></tr>
+<tr><td>总像素</td><td><input type="text" name="attr_279"></input></td></tr>
+<tr><td>画幅比</td><td><input type="text" name="attr_399"></input></td></tr>
+<tr><td>工作湿度</td><td><input type="text" name="attr_398"></input></td></tr>
+<tr><td>发布日期</td><td><input type="text" name="attr_7"></input></td></tr>
+<tr><td>白平衡</td><td><input type="text" name="attr_309"></input></td></tr>
+<tr><td>Live View</td><td><input type="text" name="attr_412"></input></td></tr>
+<tr><td>闪光补偿</td><td><input type="text" name="attr_301"></input></td></tr>
+<tr><td>专用闪光灯</td><td><input type="text" name="attr_303"></input></td></tr>
+<tr><td>连拍</td><td><input type="text" name="attr_305"></input></td></tr>
+<tr><td>自拍</td><td><input type="text" name="attr_307"></input></td></tr>
+<tr><td>闪光灯类型</td><td><input type="text" name="attr_297"></input></td></tr>
+<tr><td>重量</td><td><input type="text" name="attr_31"></input></td></tr>
+<tr><td>镜头卡口</td><td><input type="text" name="attr_539"></input></td></tr>
+<tr><td>色彩空间</td><td><input type="text" name="attr_511"></input></td></tr>
+<tr><td>静态图像质量</td><td><input type="text" name="attr_510"></input></td></tr>
+<tr><td>取景器</td><td><input type="text" name="attr_335"></input></td></tr>
+<tr><td>影像传感器</td><td><input type="text" name="attr_334"></input></td></tr>
+<tr><td>取景放大倍率</td><td><input type="text" name="attr_337"></input></td></tr>
+<tr><td>取景范围</td><td><input type="text" name="attr_336"></input></td></tr>
+<tr><td>外接电源</td><td><input type="text" name="attr_330"></input></td></tr>
+<tr><td>镜头结构</td><td><input type="text" name="attr_333"></input></td></tr>
+<tr><td>最大解像度</td><td><input type="text" name="attr_332"></input></td></tr>
+<tr><td>影像处理器</td><td><input type="text" name="attr_256"></input></td></tr>
+<tr><td>影像传感器尺寸</td><td><input type="text" name="attr_255"></input></td></tr>
+<tr><td>对焦系统类型</td><td><input type="text" name="attr_344"></input></td></tr>
+<tr><td>对焦点</td><td><input type="text" name="attr_345"></input></td></tr>
+<tr><td>镜头卡口</td><td><input type="text" name="attr_540"></input></td></tr>
+<tr><td>低通滤镜</td><td><input type="text" name="attr_403"></input></td></tr>
+<tr><td>测光系统</td><td><input type="text" name="attr_505"></input></td></tr>
+<tr><td>反光镜锁定</td><td><input type="text" name="attr_341"></input></td></tr>
+<tr><td>兼容镜头</td><td><input type="text" name="attr_401"></input></td></tr>
+<tr><td>防抖</td><td><input type="text" name="attr_754"></input></td></tr>
+<tr><td>配件端口</td><td><input type="text" name="attr_548"></input></td></tr>
+<tr><td>焦距</td><td><input type="text" name="attr_13"></input></td></tr>
+<tr><td>低/超低色散镜片</td><td><input type="text" name="attr_12"></input></td></tr>
+<tr><td>最大光圈</td><td><input type="text" name="attr_15"></input></td></tr>
+<tr><td>最小光圈</td><td><input type="text" name="attr_16"></input></td></tr>
+<tr><td>等效35mm画幅焦距</td><td><input type="text" name="attr_19"></input></td></tr>
+<tr><td>工作温度</td><td><input type="text" name="attr_397"></input></td></tr>
+<tr><td>电池寿命</td><td><input type="text" name="attr_323"></input></td></tr>
+<tr><td>电池</td><td><input type="text" name="attr_321"></input></td></tr>
+<tr><td>镜头类型</td><td><input type="text" name="attr_5"></input></td></tr>
+<tr><td>颜色</td><td><input type="text" name="attr_328"></input></td></tr>
+<tr><td>附件</td><td><input type="text" name="attr_329"></input></td></tr>
+<tr><td>支持打印协议</td><td><input type="text" name="attr_489"></input></td></tr>
+<tr><td>数据接口</td><td><input type="text" name="attr_488"></input></td></tr>
+<tr><td>闪光同步模式</td><td><input type="text" name="attr_483"></input></td></tr>
+<tr><td>快门类型</td><td><input type="text" name="attr_355"></input></td></tr>
+<tr><td>自动曝光锁</td><td><input type="text" name="attr_353"></input></td></tr>
+<tr><td>自动包围曝光</td><td><input type="text" name="attr_352"></input></td></tr>
+<tr><td>测光范围</td><td><input type="text" name="attr_351"></input></td></tr>
+<tr><td></td><td><input type="submit" value="save"></input></td></tr>
+</tbody>
+</table>
+</form>
+
+{% end %}

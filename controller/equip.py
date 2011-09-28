@@ -20,7 +20,7 @@ class EquipmentListHandler(BaseHandler):
         start_id = (page-1)*item_per_page
         field_id = "id, item_name, item_type, item_brand, item_image"
         sql = "select %s from equipment limit %d, %d"%(field_id, start_id, item_per_page)
-        res = self.db.query(sql) 
+        res = self.db.query(sql)
         prev = max(1, page-1)
         next = min(62, page+1)
         cur_page = page
@@ -30,10 +30,20 @@ class EquipmentListHandler(BaseHandler):
         pass
 
 class EquipmentHandler(BaseHandler):
-    def get(self, equipmentid):
-        sql = "select id, item_name, item_brand, item_type, item_image from equipment where id=%d"%(int(equipmentid))
-        res = self.db.get(sql)
-        self.render('equipment.html', res=res)
+    def get(self, action):
+        if action == 'new':
+            return self.render('edit_equipment.html')
+        else:
+            sql = "select id, item_name, item_brand, item_type, item_image from equipment where id=%d"%(int(equipmentid))
+            res = self.db.get(sql)
+            self.render('equipment.html', res=res)
+
+    def post(self, action):
+        if action == 'new':
+            f = lambda x:self.get_argument(x, '').strip()
+            # FIXME ................ go ahead
+        if action == 'edit':
+            pass
 
 class CategoryHandler(BaseHandler):
     def get(self, category):
@@ -48,7 +58,7 @@ class CategoryHandler(BaseHandler):
             page = int(page)
             start_id = (page-1)*item_per_page
             sql = "select * from equipment where item_type='%s' limit %d, %d"%(category, start_id, item_per_page)
-            res = self.db.query(sql) 
+            res = self.db.query(sql)
             prev = max(1, page-1)
             next = min(62, page+1)
             cur_page = page
