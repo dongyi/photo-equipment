@@ -46,13 +46,13 @@ class AccountHandler(BaseHandler):
         name = f('name')
         password = f('password')
         if action == 'login':
-            user = self.db.get('select * from account where name=%s and password=PASSWORD(%s)'%(qn(name), qn(password))) # this will raise error if not exist
-            self.session['user'] = dict(name=user.name, id=user.id)
+            user = self.db.get('select * from account where username=%s and password=PASSWORD(%s)'%(qn(name), qn(password))) # this will raise error if not exist
+            self.session['user'] = dict(name=user.username, id=user.id)
             self.session.save()
             return self.redirect('/')
         elif action == 'signup':
             name = f('name')
             email = f('email')
             password = f('password')
-            self.db.execute('INSERT INTO account (name, email, password) VALUES(%s, %s, MD5(%s))'%(qn(name), qn(email), qn(password)))
-            return self.render('/')
+            self.db.execute('INSERT INTO account (username, email, password) VALUES(%s, %s, MD5(%s))'%(qn(name), qn(email), qn(password)))
+            return self.redirect('/')
