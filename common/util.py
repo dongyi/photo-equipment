@@ -80,7 +80,7 @@ def is_in_same_day(argtime):
     """
 
     now = int(time.time())
-
+    kDaySeconds = 24 * 3600
     return (argtime / kDaySeconds) == (now / kDaySeconds)
     #return (now-argtime)/kDaySeconds == 0
 
