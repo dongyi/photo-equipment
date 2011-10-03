@@ -43,16 +43,14 @@ class AccountHandler(BaseHandler):
 
     def post(self, action):
         f = lambda x:self.get_argument(x, '').strip()
-        name = f('name')
-        password = f('password')
+        email = f('form_email')
+        name = f('form_name')
+        password = f('form_password')
         if action == 'login':
-            user = self.db.get('select * from account where username=%s and password=PASSWORD(%s)'%(qn(name), qn(password))) # this will raise error if not exist
-            self.session['user'] = dict(name=user.username, id=user.id)
+            user = self.db.get('select * from account where email=%s and password=MD5(%s)'%(qn(email), qn(password))) # this will raise error if not exist
+            self.session['user'] = dict(name=user.username, id=user.userid)
             self.session.save()
             return self.redirect('/')
         elif action == 'signup':
-            name = f('name')
-            email = f('email')
-            password = f('password')
             self.db.execute('INSERT INTO account (username, email, password) VALUES(%s, %s, MD5(%s))'%(qn(name), qn(email), qn(password)))
             return self.redirect('/')
