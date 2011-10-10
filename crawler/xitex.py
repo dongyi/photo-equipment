@@ -9,7 +9,7 @@ conn.text_factory = str
 cur = conn.cursor()
 
 
-page_number_pattern = re.compile("""(?<=/)\d(?=</span>)""")
+page_number_pattern = re.compile("""(?<=/)\d\d(?=</span>)""")
 item_pattern = re.compile("""(?<=<td class="t-name"><a href=").*(?=" target="_blank">)""")
 item_id_pattern = re.compile("(?<=id=)\d+")
 item_name_pattern = re.compile("""(?<=alt=").*?(?=">)""")
@@ -39,25 +39,9 @@ for i in attr_ids:
     attr_patterns[str(i)] = """(?<=attr_id\=\"%d\"\ union\=\".\"\ content=\").*?(?=")"""%i
 
 category_page = """
-http://www2.xitek.com/production/post.php?a=list&parent=2&cid=3&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=2&cid=4&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=2&cid=5&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=2&cid=7&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=2&cid=6&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=56&cid=8&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=9&cid=12&show=1
+http://www2.xitek.com/production/post.php?a=list&parent=9&cid=13&show=1
 http://www2.xitek.com/production/post.php?a=list&parent=9&cid=10&show=1
 http://www2.xitek.com/production/post.php?a=list&parent=9&cid=11&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=9&cid=13&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=9&cid=14&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=9&cid=15&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=9&cid=16&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=9&cid=18&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=19&cid=20&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=19&cid=22&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=19&cid=23&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=19&cid=21&show=1
-http://www2.xitek.com/production/post.php?a=list&parent=19&cid=24&show=1
 """.split()
 
 
@@ -98,9 +82,7 @@ def process_item(item_link):
     item_brand = re.findall(item_brand_pattern, page_code)
     item_image = re.findall(item_image_pattern, page_code)
     item = dict()
-    print item_type
-    print item_brand
-    print item_image
+
     try:
         item['item_name'] = item_name[0] if len(item_name)>0 else 'no name'
     except:
