@@ -2,6 +2,7 @@ CREATE TABLE `account` (
     `userid` int(11) NOT NULL auto_increment,
     `email` text character set utf8 NOT NULL,
     `username` varchar(32) NOT NULL,
+    `password` varchar(64) NOT NULL,
     `weiboid` bigint(20) default NULL,
     `renrenid` bigint(20) default NULL,
     `doubanid` bigint(20) default NULL,
