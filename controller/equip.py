@@ -66,9 +66,13 @@ class EquipmentHandler(BaseHandler):
 
 class CategoryHandler(BaseHandler):
     def get(self, category):
+        f = lambda x:self.get_argument(x, '').strip()
         if category == '':
             self.render('category.html')
         else:
+            category = f('category')
+            page = f('page')
+            brand = f('brand')
             category = category.split('/')
             if len(category) > 1:
                 category, page = category
@@ -76,7 +80,9 @@ class CategoryHandler(BaseHandler):
                 category, page = category[0], 1
             page = int(page)
             start_id = (page-1)*item_per_page
-            sql = "select * from equipment where item_type='%s' limit %d, %d"%(category, start_id, item_per_page)
+            condition = 'where %s'%'and'.join(['%s=%s'%(x, eval(x)) for x in ['brand', 'category']])
+            sql = "select * from equipment where %s limit %d, %d"%(condition, start_id, item_per_page)
+            print sql
             res = self.db.query(sql)
             prev = max(1, page-1)
             next = min(62, page+1)
