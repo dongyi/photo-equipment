@@ -58,7 +58,6 @@ def process_category(category_link):
         try:
             process_page(p)
         except:
-            print "fuck 1"
             raise
             continue
 
@@ -70,7 +69,6 @@ def process_page(page_link):
             process_item(i)
         except:
             raise
-            print "fuck 2"
             continue
 
 def process_item(item_link):
